@@ -35,6 +35,8 @@ body {
   justify-content:center;
   align-items:center;
   padding:30px;
+  position:relative;
+  overflow:hidden;
 }
 
 .hidden { display:none; }
@@ -76,6 +78,22 @@ button {
   line-height:1.7;
   max-width:700px;
   white-space: pre-wrap;
+}
+
+/* Floating hearts animation */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  color: #ff9de2;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(100vh) scale(0.5); opacity:0.8;}
+  50% {opacity:1;}
+  100% {transform: translateY(-10vh) scale(1); opacity:0;}
 }
 </style>
 </head>
@@ -136,8 +154,24 @@ I love you — today, tomorrow, and all the days after. 💕
 <script>
 const music = document.getElementById('bgmusic');
 
+// Floating hearts creation
+function createHearts() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = '💜';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+  heart.style.animationDuration = (5 + Math.random() * 10) + 's';
+  document.body.appendChild(heart);
+  setTimeout(() => {
+    heart.remove();
+  }, 15000); // remove after animation
+}
+
+// continuously create hearts
+setInterval(createHearts, 500);
+
 function startMusicAndNext(){
-  // Try to autoplay music (some browsers require a user gesture)
   music.play().catch(() => console.log("Autoplay blocked, user gesture required"));
   nextPage(2);
 }
@@ -148,7 +182,6 @@ function nextPage(pageNum){
 }
 
 function chooseYes(){
-  // Stop music
   music.pause();
   music.currentTime = 0;
   nextPage(4);
