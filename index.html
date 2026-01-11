@@ -4,25 +4,20 @@
 <meta charset="UTF-8">
 <title>Happy 3rd Monthsary 💜</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
 <style>
 body {
   margin:0;
   font-family:'Great Vibes', cursive;
-  background:linear-gradient(#3a005f,#7b2cbf);
   overflow:hidden;
+  background: linear-gradient(135deg, #7b2cbf, #9d4edd, #c77dff, #e0aaff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
-.flowers {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:url("https://i.imgur.com/W9y9KkI.png"); /* purple flower image hosted online */
-  background-size:cover;
-  opacity:0.25;
-  z-index:-1;
+@keyframes gradientShift {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
 }
 
 .page {
@@ -51,54 +46,48 @@ button {
   font-size:22px;
   border:none;
   border-radius:30px;
-  background:#e0aaff;
+  background:#d8b4ff;
   cursor:pointer;
 }
 </style>
 </head>
 
 <body>
-<div class="flowers"></div>
 
 <!-- MUSIC -->
-<audio id="music" loop>
-  <source src="Katy_Perry_-_Unconditionally__Lyrics_(128k).mp3" type="audio/mpeg">
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="page" id="page1">
   <h1>Happy 3rd Monthsary 💜</h1>
   <h2>Kya</h2>
-  <img src="Messenger_creation_671DBF8D-ED45-4CF8-86ED-A82EC6AD02D3.jpeg">
-  <button onclick="start()">Open My Heart</button>
+  <img src="us.jpg">
+  <button onclick="next()">Open My Heart</button>
 </div>
 
 <div class="page hidden" id="page2">
 <h1>My Kya 💜</h1>
 <p style="font-size:26px; line-height:1.7;">
-Happy 3rd monthsary, my love.  
-Three months with you feels like a dream I never want to wake up from.
+Hi Keya 🩷 my love… happy 3rd monthsary to us.
 
-Every moment with you is a blessing I thank God for.  
-Your smile heals me.  
-Your voice feels like home.  
-Your love makes everything in this world softer and brighter.
-
-I promise you this — no matter what happens,  
-I will always choose you,  
-always protect your heart,  
-and always love you deeper than yesterday.
-
-You are not just my girlfriend, Kya.  
-You are my miracle, my forever, my favorite person in this universe.
-
-I love you endlessly 💜  
+It honestly feels crazy how three months can already feel like you’ve been part of my life forever. You didn’t just enter my days — you became part of my routine, my peace, and the place my heart naturally goes to when it wants to feel okay.
+I don’t think you realize how much you changed my world in the simplest way. When things get heavy, when my mind gets tired, when the day feels too much — you make everything softer just by being there. Talking to you feels like coming home after a long day.
+What I love most about us is how real we are. We don’t have to pretend. We don’t have to be perfect. We can be silly, quiet, emotional, clingy, weird, sweet — all of it — and it still feels right. With you, I don’t feel like I need to impress… I just get to be me.
+There are days when I’m not great at expressing myself, when I go quiet or struggle to put my feelings into words. But even then, you stay. You understand. And that means more to me than I can ever explain.
+Three months in, and I still get that little spark when I see your name on my screen. The kind of feeling that makes my chest feel warm and light at the same time. The kind that reminds me, “yeah… this person matters to me.”
+I don’t know everything about the future yet, but one thing I do know is this — you are someone I want beside me through it. Through the good days, the hard days, the confusing days… I still choose you.
+So thank you, love, for being my calm, my happiness, and my favorite person.
+Thank you for staying, for caring, and for being you.
+Happy 3rd monthsary, Krizel Kya C. Ygsi 🩷
+You mean more to me than you know.
+I love you — today, tomorrow, and all the days after. 💕
 — Your Baby
 </p>
 </div>
 
 <script>
-function start(){
-  document.getElementById("music").play();
+function next(){
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("page2").classList.remove("hidden");
 }
