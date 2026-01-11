@@ -83,7 +83,7 @@ button {
 /* Floating hearts animation */
 .heart {
   position: absolute;
-  font-size: 20px;
+  font-size: 25px;
   color: #ff9de2;
   opacity: 0.8;
   pointer-events: none;
@@ -160,17 +160,23 @@ function createHearts() {
   heart.className = 'heart';
   heart.innerHTML = '💜';
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.fontSize = (15 + Math.random() * 25) + 'px';
-  heart.style.animationDuration = (5 + Math.random() * 10) + 's';
+  heart.style.fontSize = (25 + Math.random() * 30) + 'px'; // bigger hearts
+  heart.style.animationDuration = (10 + Math.random() * 15) + 's'; // slower float
+  heart.style.opacity = 0.7 + Math.random() * 0.3;
   document.body.appendChild(heart);
   setTimeout(() => {
     heart.remove();
-  }, 15000); // remove after animation
+  }, 25000); // remove after animation
 }
 
-// continuously create hearts
-setInterval(createHearts, 500);
+// Create multiple hearts continuously
+setInterval(() => {
+  for (let i = 0; i < 3; i++) { // more hearts
+    createHearts();
+  }
+}, 500);
 
+// Page functions
 function startMusicAndNext(){
   music.play().catch(() => console.log("Autoplay blocked, user gesture required"));
   nextPage(2);
