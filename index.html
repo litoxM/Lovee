@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 3rd Monthsary 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Great Vibes', cursive;
+  background:linear-gradient(#3a005f,#7b2cbf);
+  overflow:hidden;
+}
+
+.flowers {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("https://i.imgur.com/8QfKX6C.png");
+  opacity:0.25;
+  z-index:-1;
+}
+
+.page {
+  width:100vw;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:30px;
+}
+
+.hidden { display:none; }
+
+img {
+  width:280px;
+  border-radius:25px;
+  box-shadow:0 0 25px pink;
+}
+
+button {
+  margin-top:30px;
+  padding:15px 40px;
+  font-size:22px;
+  border:none;
+  border-radius:30px;
+  background:#e0aaff;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="flowers"></div>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page" id="page1">
+  <h1>Happy 3rd Monthsary 💜</h1>
+  <h2>Kya</h2>
+  <img src="us.jpg">
+  <button onclick="next()">Open My Heart</button>
+</div>
+
+<div class="page hidden" id="page2">
+<h1>My Kya 💜</h1>
+<p style="font-size:26px; line-height:1.7;">
+Happy 3rd monthsary, my love.  
+Three months with you feels like a dream I never want to wake up from.
+
+Every moment with you is a blessing I thank God for.  
+Your smile heals me.  
+Your voice feels like home.  
+Your love makes everything in this world softer and brighter.
+
+I promise you this — no matter what happens,  
+I will always choose you,  
+always protect your heart,  
+and always love you deeper than yesterday.
+
+You are not just my girlfriend, Kya.  
+You are my miracle, my forever, my favorite person in this universe.
+
+I love you endlessly 💜  
+— Your Baby
+</p>
+</div>
+
+<script>
+function next(){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
