@@ -19,7 +19,8 @@ body {
   left:0;
   width:100%;
   height:100%;
-  background:url("https://i.imgur.com/8QfKX6C.png");
+  background:url("flowers.png");
+  background-size:cover;
   opacity:0.25;
   z-index:-1;
 }
@@ -60,7 +61,7 @@ button {
 <div class="flowers"></div>
 
 <!-- MUSIC -->
-<audio autoplay loop>
+<audio id="music" loop>
   <source src="Goo_Goo_Dolls_-_Iris(128k).mp3" type="audio/mpeg">
 </audio>
 
@@ -68,7 +69,7 @@ button {
   <h1>Happy 3rd Monthsary 💜</h1>
   <h2>Kya</h2>
   <img src="Messenger_creation_671DBF8D-ED45-4CF8-86ED-A82EC6AD02D3.jpeg">
-  <button onclick="next()">Open My Heart</button>
+  <button onclick="start()">Open My Heart</button>
 </div>
 
 <div class="page hidden" id="page2">
@@ -96,7 +97,8 @@ I love you endlessly 💜
 </div>
 
 <script>
-function next(){
+function start(){
+  document.getElementById("music").play();
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("page2").classList.remove("hidden");
 }
