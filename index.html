@@ -83,8 +83,9 @@ button {
 <body>
 
 <!-- MUSIC -->
-<audio id="bgmusic" autoplay loop>
+<audio id="bgmusic" loop>
   <source src="Katy_Perry_-_Unconditionally__Lyrics_(128k).mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
 </audio>
 
 <!-- PAGE 1 -->
@@ -92,7 +93,7 @@ button {
   <h1>Happy 3rd Monthsary 💜</h1>
   <h2>Kya</h2>
   <img src="Messenger_creation_671DBF8D-ED45-4CF8-86ED-A82EC6AD02D3.jpeg" alt="Us together">
-  <button onclick="nextPage(2)">Open My Heart</button>
+  <button onclick="startMusicAndNext()">Open My Heart</button>
 </div>
 
 <!-- PAGE 2 -->
@@ -133,6 +134,14 @@ I love you — today, tomorrow, and all the days after. 💕
 </div>
 
 <script>
+const music = document.getElementById('bgmusic');
+
+function startMusicAndNext(){
+  // Try to autoplay music (some browsers require a user gesture)
+  music.play().catch(() => console.log("Autoplay blocked, user gesture required"));
+  nextPage(2);
+}
+
 function nextPage(pageNum){
   document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
   document.getElementById('page'+pageNum).classList.remove('hidden');
@@ -140,8 +149,8 @@ function nextPage(pageNum){
 
 function chooseYes(){
   // Stop music
-  document.getElementById('bgmusic').pause();
-  document.getElementById('bgmusic').currentTime = 0;
+  music.pause();
+  music.currentTime = 0;
   nextPage(4);
 }
 
