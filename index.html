@@ -9,9 +9,16 @@ body {
   margin:0;
   font-family:'Great Vibes', cursive;
   overflow:hidden;
+  height:100vh;
+  width:100vw;
   background: linear-gradient(135deg, #7b2cbf, #9d4edd, #c77dff, #e0aaff);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
 }
 
 @keyframes gradientShift {
@@ -21,14 +28,12 @@ body {
 }
 
 .page {
-  width:100vw;
-  height:100vh;
+  width:100%;
+  height:100%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
-  color:white;
   padding:30px;
 }
 
@@ -49,26 +54,51 @@ button {
   background:#d8b4ff;
   cursor:pointer;
 }
+
+.choice-button {
+  margin: 20px;
+  padding: 15px 40px;
+  font-size:22px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:#c77dff;
+  color:white;
+  transition: 0.3s;
+}
+
+.choice-button:hover {
+  background:#e0aaff;
+}
+
+.page p {
+  font-size:26px;
+  line-height:1.7;
+  max-width:700px;
+  white-space: pre-wrap;
+}
 </style>
 </head>
 
 <body>
 
 <!-- MUSIC -->
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
+<audio id="bgmusic" autoplay loop>
+  <source src="Katy_Perry_-_Unconditionally__Lyrics_(128k).mp3" type="audio/mpeg">
 </audio>
 
+<!-- PAGE 1 -->
 <div class="page" id="page1">
   <h1>Happy 3rd Monthsary 💜</h1>
   <h2>Kya</h2>
-  <img src="us.jpg">
-  <button onclick="next()">Open My Heart</button>
+  <img src="Messenger_creation_671DBF8D-ED45-4CF8-86ED-A82EC6AD02D3.jpeg" alt="Us together">
+  <button onclick="nextPage(2)">Open My Heart</button>
 </div>
 
+<!-- PAGE 2 -->
 <div class="page hidden" id="page2">
 <h1>My Kya 💜</h1>
-<p style="font-size:26px; line-height:1.7;">
+<p>
 Hi Keya 🩷 my love… happy 3rd monthsary to us.
 
 It honestly feels crazy how three months can already feel like you’ve been part of my life forever. You didn’t just enter my days — you became part of my routine, my peace, and the place my heart naturally goes to when it wants to feel okay.
@@ -84,12 +114,39 @@ You mean more to me than you know.
 I love you — today, tomorrow, and all the days after. 💕
 — Your Baby
 </p>
+<button onclick="nextPage(3)">Next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+<h1>Will you stay with me forever, my love? 💜</h1>
+<div>
+  <button class="choice-button" onclick="chooseYes()">Yes</button>
+  <button class="choice-button" onclick="chooseNo()">No</button>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page hidden" id="page4">
+<h1>I Love You 💖</h1>
+<p>You are my everything, forever and always.</p>
 </div>
 
 <script>
-function next(){
-  document.getElementById("page1").classList.add("hidden");
-  document.getElementById("page2").classList.remove("hidden");
+function nextPage(pageNum){
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page'+pageNum).classList.remove('hidden');
+}
+
+function chooseYes(){
+  // Stop music
+  document.getElementById('bgmusic').pause();
+  document.getElementById('bgmusic').currentTime = 0;
+  nextPage(4);
+}
+
+function chooseNo(){
+  alert("😢 Oh no… but I’ll always love you anyway.");
 }
 </script>
 
